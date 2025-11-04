@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koheren - Professional Company</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#14213D',
+                        'primary-dark': '#0C1428',
+                        'primary-light': '#1a2d52',
+                        secondary: '#f8f9fa',
+                        accent: '#14213D',
+                        'gray-50': '#f9fafb',
+                        'gray-100': '#f3f4f6',
+                        'gray-200': '#e5e7eb',
+                        'gray-300': '#d1d5db',
+                        'gray-600': '#4b5563',
+                        'gray-700': '#374151',
+                        'gray-800': '#1f2937',
+                        'gray-900': '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            scroll-snap-align: start;
+        }
+
+        footer {
+            scroll-snap-align: start;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .section {
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #header {
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .section {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+
+        .section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .section.visible .section-content>* {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: steppedFadeIn 0.6s ease forwards;
+        }
+
+        .section.visible .section-content>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .section.visible .section-content>*:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .section.visible .section-content>*:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .section.visible .section-content>*:nth-child(4) {
+            animation-delay: 0.55s;
+        }
+
+        @keyframes steppedFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            70% {
+                opacity: 0.7;
+                transform: translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-entering {
+            animation: steppedSlideIn 0.8s cubic-bezier(0.15, 0.85, 0.36, 1) forwards;
+        }
+
+        .section-leaving {
+            animation: steppedSlideOut 0.8s cubic-bezier(0.15, 0.85, 0.36, 1) forwards;
+        }
+
+        @keyframes steppedSlideIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateX(-5%);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes steppedSlideOut {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            60% {
+                transform: translateX(-105%);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        .section::after {
+            display: none;
+        }
+
+        .section.transitioning::after {
+            display: none;
+        }
+
+        .bg-transition {
+            transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link.active {
+            color: #14213D;
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 9998;
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .page-transition.active {
+            transform: translateY(0);
+        }
+
+        .section-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .section.visible .section-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.4s ease;
+        }
+
+        .loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-logo img {
+            height: 5rem;
+            width: auto;
+            filter: brightness(0.3);
+        }
+
+        .loader-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .loader-dot {
+            width: 10px;
+            height: 10px;
+            background: #005581;
+            border-radius: 50%;
+            animation: loadingBounce 1.2s infinite ease-in-out both;
+        }
+
+        .loader-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loader-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes loadingBounce {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 4px 12px 0 rgba(0, 85, 129, 0.08);
+            border-color: #d1d5db;
+        }
+
+        .glass-card::before {
+            display: none;
+        }
+
+        .glass-card:hover::before {
+            display: none;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 85, 129, 0.1);
+            border-color: #005581;
+        }
+
+        .btn-hover {
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .btn-hover::before {
+            display: none;
+        }
+
+        .btn-hover:hover::before {
+            display: none;
+        }
+
+        .btn-hover:hover {
+            box-shadow: 0 4px 12px rgba(0, 61, 92, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #14213D;
+            z-index: 9999;
+            transition: width 0.2s ease;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #14213D, #1a2d52);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #14213D;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #14213D;
+        }
+
+        .floating {
+            display: none;
+        }
+
+        @keyframes floating {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse-animation {
+            display: none;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #E8E9EB;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation:
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #E8E9EB;
+            }
+        }
+
+        .particles {
+            display: none;
+        }
+
+        .particle {
+            display: none;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.3;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .enhanced-hover {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .enhanced-hover::before {
+            display: none;
+        }
+
+        .enhanced-hover:hover::before {
+            display: none;
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: staggerIn 0.6s ease forwards;
+        }
+
+        .stagger-item:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .stagger-item:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .stagger-item:nth-child(3) {
+            animation-delay: 0.25s;
+        }
+
+        .stagger-item:nth-child(4) {
+            animation-delay: 0.35s;
+        }
+
+        @keyframes staggerIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            70% {
+                opacity: 0.8;
+                transform: translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .parallax {
+            transform: translateZ(0);
+            transition: transform 0.1s ease-out;
+        }
+
+        .reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #E8E9EB;
+            transition: left 0.8s ease;
+        }
+
+        .reveal.animate::before {
+            left: 100%;
+        }
+
+        .glow {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 30px rgba(252, 163, 17, 0.5);
+        }
+
+        .header-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #14213D;
+            z-index: 1;
+        }
+
+
+        .section-dots {
+            display: none;
+        }
+
+        .section-dot {
+            display: none;
+        }
+
+        .section-dot.active {
+            display: none;
+        }
+
+        .step-animation {
+            animation: stepMove 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        @keyframes stepMove {
+            0% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        #mobileMenu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100vh;
+            background: white;
+            z-index: 60;
+            transform: translateX(100%);
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 640px) {
+            #mobileMenu {
+                width: 100%;
+            }
+        }
+
+        #mobileMenu.show {
+            transform: translateX(0);
+        }
+
+        #mobileMenu a {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #mobileMenu.show a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #mobileMenu.show a:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        #mobileMenu.show a:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        #mobileMenu.show a:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        #mobileMenu.show a:nth-child(4) {
+            transition-delay: 0.2s;
+        }
+
+        #mobileMenu.show a:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 55;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.6s;
+        }
+
+        .menu-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #closeMenuBtn {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #374151;
+            cursor: pointer;
+            z-index: 61;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 overflow-x-hidden">
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="logo.png" alt="Koheren Consulting Logo">
+            </div>
+            <div class="loader-dots">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-transition" id="pageTransition"></div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="section-dots" id="sectionDots">
+        <div class="section-dot active" data-section="header"></div>
+        <div class="section-dot" data-section="our-firm"></div>
+        <div class="section-dot" data-section="our-services"></div>
+        <div class="section-dot" data-section="koheren-advantage"></div>
+        <div class="section-dot" data-section="signature-process"></div>
+        <div class="section-dot" data-section="footer"></div>
+    </div>
+
+    <div class="scroll-progress"></div>
+
+    <div class="particles" id="particles"></div>
+
+    <nav id="navbar"
+        class="bg-transparent w-full z-50 transition-all duration-300 fixed top-0">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center pl-2">
+                    <a href="#" class="flex items-center">
+                        <img src="logo.png" alt="Koheren Consulting Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <div class="flex items-center pr-2">
+                    <button id="mobileMenuBtn" class="text-white focus:outline-none p-0">
+                        <i class="fas fa-bars text-4xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu">
+        <button id="closeMenuBtn" class="focus:outline-none">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="px-8 space-y-2">
+            <a href="#header"
+                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
+                data-section="header">Home</a>
+            <a href="#our-firm"
+                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
+                data-section="our-firm">Our Firm</a>
+            <a href="#our-services"
+                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
+                data-section="our-services">Our Services</a>
+            <a href="#koheren-advantage"
+                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
+                data-section="koheren-advantage">Our Advantage</a>
+            <a href="#signature-process"
+                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
+                data-section="signature-process">Try For Free</a>
+        </div>
+    </div>
+
+    <header id="header"
+        class="section relative h-screen flex items-center justify-center overflow-hidden bg-white">
+        <div class="header-image-container">
+            <img src="gedung.jpeg" alt="Gedung Koheren" class="header-image">
+            <div class="header-overlay"></div>
+        </div>
+
+        <div class="section-content w-full relative z-10 h-full flex items-center">
+            <div class="w-full px-8 sm:px-12 lg:px-16 h-full flex flex-col justify-center py-20">
+                <div class="flex-1 flex items-center">
+                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] max-w-5xl font-display font-bold"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <p>Solving Your Most Important Growth Challenges</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-end items-end pt-8" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#our-firm"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-10 py-3.5 rounded-full font-normal btn-hover inline-block text-sm tracking-wide transition-all">
+                        LEARN MORE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="our-firm" class="section bg-gray-50 relative">
+        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">Our Firm</h2>
+            </div>
+
+            <div class="mb-12">
+                <div class="bg-white border border-gray-200 rounded-sm p-8 md:p-12 shadow-sm" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                        At <span class="font-semibold text-primary">Koheren Consulting</span>, we stand by our clients when
+                        they need us most—combining global insight, local understanding, and expert guidance in strategy,
+                        organization, and transactions. We are here to unlock value and support businesses in achieving
+                        their wildest dreams.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Global Thinking</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">We bring world-class expertise and global perspective to
+                        solve your most complex business challenges.</p>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Local Understanding</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Our deep knowledge of local markets ensures solutions
+                        tailored to your specific context and challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-services" class="section bg-white relative">
+        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-3" data-aos="fade-up">Our Services</h2>
+                <h3 class="text-base text-gray-600" data-aos="fade-up" data-aos-delay="50">How We Help Clients Grow
+                    and Solve Their Most Urgent Problems</h3>
+            </div>
+
+            <div class="mb-10">
+                <div class="bg-gray-50 border border-gray-200 rounded-sm p-6 md:p-8" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <p class="text-base text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                        We work alongside our clients to solve their most urgent and critical challenges—bringing
+                        our latest and sharpest thinking in strategy, organization, and transaction advisory to deliver
+                        the insight and solutions they need most.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="service-card rounded-sm p-6 text-center h-full"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <div
+                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
+                        <i class="fas fa-chart-line text-lg text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Strategy Advisory</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">We help you define your vision, set strategic
+                        direction, and create roadmaps for sustainable growth and competitive advantage.</p>
+                </div>
+
+                <div class="service-card rounded-sm p-6 text-center h-full"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
+                        <i class="fas fa-users-cog text-lg text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Organization Advisory</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">We optimize your organizational structure, culture,
+                        and capabilities to align with your strategic objectives and maximize performance.</p>
+                </div>
+
+                <div class="service-card rounded-sm p-6 text-center h-full"
+                    data-aos="fade-up" data-aos-delay="250">
+                    <div
+                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
+                        <i class="fas fa-handshake text-lg text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Transaction Advisory</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">We provide comprehensive support for mergers,
+                        acquisitions, and partnerships to maximize value and minimize risks throughout the transaction lifecycle.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="koheren-advantage" class="section bg-gray-50 relative">
+        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">The Koheren Advantage</h2>
+            </div>
+
+            <div class="mb-8">
+                <div class="bg-white border border-gray-200 rounded-sm p-6 md:p-8" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <p class="text-base text-gray-700 leading-relaxed text-center mb-8 max-w-3xl mx-auto">
+                        We have a strong believe that client will receive most of the value and benefits in our
+                        interaction by understanding how we work in a very clear 4 <span
+                            class="font-semibold text-primary">Koheren</span> Working Principles:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
+                            data-aos="fade-up" data-aos-delay="150">
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
+                                    <i class="fas fa-handshake text-primary text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">A True Partner, Not a Vendor</h4>
+                                    <p class="text-gray-600 leading-relaxed text-sm">We align ourselves with your success, working alongside
+                                        you as a partner committed to your goals rather than just delivering a service.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
+                            data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
+                                    <i class="fas fa-thumbtack text-primary text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">Tailor-Made, Not Off-the-Shelf</h4>
+                                    <p class="text-gray-600 leading-relaxed text-sm">We create customized solutions designed specifically
+                                        for your unique challenges, not generic approaches that fail to address your
+                                        specific needs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
+                            data-aos="fade-up" data-aos-delay="250">
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
+                                    <i class="fas fa-brain text-primary text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">We Make You Smarter, Not Just
+                                        Dependent</h4>
+                                    <p class="text-gray-600 leading-relaxed text-sm">We transfer knowledge and build capabilities within
+                                        your team, empowering you to sustain success long after our engagement ends.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
+                            data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex items-start">
+                                <div
+                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
+                                    <i class="fas fa-rocket text-primary text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">We Deliver Action, Not Just Advice
+                                    </h4>
+                                    <p class="text-gray-600 leading-relaxed text-sm">We focus on implementable solutions that create real
+                                        impact, going beyond theoretical recommendations to drive tangible results.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signature-process" class="section bg-white relative">
+        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">Our Free Signature
+                    Diagnosis Process</h2>
+            </div>
+
+            <div class="bg-primary/5 border border-primary/20 rounded-sm p-8 md:p-10 text-center relative overflow-hidden"
+                data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-4">Try Koheren Problem Solving Diagnosis to find
+                    your most urgent business problems to solve!</h3>
+                <p class="text-base text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Unlock hidden potential and identify critical opportunities for growth with our
+                    comprehensive diagnostic approach.
+                    Get insights that transform your business trajectory.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                    <a href="https://wa.me/yournumber" target="_blank"
+                        class="bg-primary text-white hover:bg-primary-dark px-8 py-3 rounded-sm font-medium btn-hover inline-block text-sm shadow-sm">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Book Your Free Diagnosis
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="https://linktr.ee/" target="_blank"
+                        class="bg-white text-primary border-2 border-primary hover:bg-gray-50 px-8 py-3 rounded-sm font-medium btn-hover inline-block text-sm">
+                        <i class="fas fa-link mr-2"></i>
+                        Linktree
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="py-10 relative" data-aos="fade-up" style="background-color: #14213D;">
+        <div class="w-full px-8 sm:px-12 lg:px-16">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                <!-- Left Section: Logo and Description -->
+                <div class="md:w-1/2">
+                    <div class="mb-4">
+                        <img src="logo.png" alt="KOHEREN Logo" class="h-8 w-auto" style="filter: brightness(0) invert(1);">
+                    </div>
+                    <p class="text-white/90 text-xs leading-relaxed max-w-xl mb-3 text-justify">
+                        Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. A trusted partner since 2020, we help investors and management teams achieve extraordinary results through strategic advisory, organizational transformation, and transaction support.
+                    </p>
+                    <p class="text-white/60 text-xs leading-relaxed text-justify">
+                        Headquarters in Jakarta with offices across Indonesia.
+                    </p>
+                </div>
+
+                <!-- Right Section: Contact Button and LinkedIn -->
+                <div class="flex flex-col items-start md:items-end gap-4">
+                    <div class="flex gap-3 items-center">
+                        <a href="https://wa.me/6287763359926" target="_blank"
+                            class="bg-white hover:bg-gray-100 text-primary px-6 py-2 rounded-sm font-medium transition-all duration-300 text-xs uppercase tracking-wide">
+                            CONTACT US
+                        </a>
+                        <a href="#" target="_blank"
+                            class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Copyright and Links -->
+            <div class="pt-6 border-t border-white/10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                    <p class="text-white/50 text-xs">© 2025 Koheren Consulting. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-4 text-xs">
+                        <a href="#" class="text-white/50 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-white/50 hover:text-white transition-colors">Terms of Use</a>
+                        <a href="#" class="text-white/50 hover:text-white transition-colors">Legal Disclosures</a>
+                        <a href="#" class="text-white/50 hover:text-white transition-colors">Investor Relations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg opacity-0 transition-all duration-300 z-50 hover:bg-primary-dark btn-hover">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: false,
+            mirror: true,
+            disable: 'mobile'
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const navbar = document.getElementById('navbar');
+        const backToTopBtn = document.getElementById('backToTop');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+        const loader = document.getElementById('loader');
+        const pageTransition = document.getElementById('pageTransition');
+        const sectionDots = document.querySelectorAll('.section-dot');
+        const footer = document.querySelector('footer');
+
+        const allSections = [...document.querySelectorAll('.section'), footer];
+
+        const sectionNames = {
+            'header': 'Home',
+            'our-firm': 'Our Firm',
+            'our-services': 'Our Services',
+            'koheren-advantage': 'Advantage',
+            'signature-process': 'Process',
+            'footer': 'Contact'
+        };
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    initializeSectionVisibility();
+                }, 500);
+            }, 1500);
+        });
+
+        function initializeSectionVisibility() {
+            allSections.forEach((section, index) => {
+                if (index === 0) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        function openMenu() {
+            mobileMenu.classList.add('show');
+            menuOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('show');
+            menuOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+
+        function handleSectionTransition() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            allSections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+
+                if (scrollTop + windowHeight > sectionTop + 100 && scrollTop < sectionBottom - 100) {
+                    if (!section.classList.contains('visible')) {
+                        section.classList.add('step-animation');
+                        setTimeout(() => {
+                            section.classList.remove('step-animation');
+                            section.classList.add('visible');
+                        }, 100);
+                    } else {
+                        section.classList.add('visible');
+                    }
+
+                    updateSectionDot(section.id || 'footer');
+                    updateActiveNavLink(section.id || 'footer');
+
+                    if (section.querySelectorAll('[data-aos]').length > 0) {
+                        AOS.refresh();
+                    }
+                }
+            });
+        }
+
+        function updateSectionDot(activeSectionId) {
+            sectionDots.forEach(dot => dot.classList.remove('active'));
+
+            sectionDots.forEach(dot => {
+                if (dot.getAttribute('data-section') === activeSectionId) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function updateActiveNavLink(activeSectionId) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinksMobile.forEach(link => link.classList.remove('active'));
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-section') === activeSectionId) {
+                    link.classList.add('active');
+                }
+            });
+
+            navLinksMobile.forEach(link => {
+                if (link.getAttribute('data-section') === activeSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        let lastScrollTime = 0;
+        window.addEventListener('scroll', () => {
+            const now = Date.now();
+            if (now - lastScrollTime > 20) {
+                lastScrollTime = now;
+
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const parallaxElements = document.querySelectorAll('.parallax');
+
+                handleSectionTransition();
+
+                parallaxElements.forEach((element) => {
+                    let speed = -scrollTop * 0.5;
+                    element.style.transform = `translateY(${speed}px)`;
+                });
+
+                const scrollProgress = document.querySelector('.scroll-progress');
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (scrollTop / totalHeight) * 100;
+                scrollProgress.style.width = `${progress}%`;
+
+                if (scrollTop > 300) {
+                    backToTopBtn.classList.remove('opacity-0');
+                    backToTopBtn.classList.add('opacity-100');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100');
+                    backToTopBtn.classList.add('opacity-0');
+                }
+            }
+        });
+
+        function smoothScrollToSection(targetId) {
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            pageTransition.classList.add('active');
+
+            setTimeout(() => {
+                const offsetTop = targetElement.offsetTop - 80;
+
+                const startPosition = window.pageYOffset;
+                const distance = offsetTop - startPosition;
+                const steps = 3;
+
+                window.scrollTo({
+                    top: startPosition + (distance * 0.6),
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: startPosition + (distance * 0.9),
+                        behavior: 'smooth'
+                    });
+
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+
+                        setTimeout(() => {
+                            pageTransition.classList.remove('active');
+                        }, 100);
+                    }, 100);
+                }, 100);
+            }, 300);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                smoothScrollToSection(targetId);
+            });
+        });
+
+        sectionDots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const targetId = '#' + this.getAttribute('data-section');
+                smoothScrollToSection(targetId);
+            });
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            pageTransition.classList.add('active');
+
+            setTimeout(() => {
+                const startPosition = window.pageYOffset;
+                const steps = 3;
+
+                window.scrollTo({
+                    top: startPosition * 0.6,
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: startPosition * 0.2,
+                        behavior: 'smooth'
+                    });
+
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+
+                        setTimeout(() => {
+                            pageTransition.classList.remove('active');
+                        }, 100);
+                    }, 100);
+                }, 100);
+            }, 300);
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.01)';
+                setTimeout(() => {
+                    card.style.transform = 'translateY(-5px) scale(1.02)';
+                }, 100);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-2px) scale(1.01)';
+                setTimeout(() => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, 100);
+            });
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.style.animation = 'pulse 0.3s ease';
+            setTimeout(() => {
+                mobileMenuBtn.style.animation = '';
+            }, 300);
+        });
+
+        const typewriterElement = document.querySelector('.typewriter');
+        let hasAnimated = false;
+
+        const typewriterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    entry.target.style.animation = 'none';
+                    setTimeout(() => {
+                        entry.target.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+                        hasAnimated = true;
+                    }, 100);
+                }
+            });
+        });
+
+        typewriterObserver.observe(typewriterElement);
+
+        window.addEventListener('load', () => {
+            handleSectionTransition();
+        });
+
+        window.addEventListener('scroll', () => {
+            if (Math.random() > 0.95) {
+                AOS.refresh();
+            }
+        });
+    </script>
+</body>
+
+</html>
