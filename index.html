@@ -49,16 +49,7 @@
         }
 
         html {
-            scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-        }
-
-        .section {
-            scroll-snap-align: start;
-        }
-
-        footer {
-            scroll-snap-align: start;
         }
 
         h1,
@@ -352,6 +343,154 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 85, 129, 0.1);
             border-color: #005581;
+        }
+
+        .services-background-container {
+            z-index: 0;
+        }
+
+        .services-background-container img {
+            filter: brightness(0.7);
+        }
+
+        .services-column {
+            transition: all 0.4s ease;
+            min-height: 320px;
+        }
+
+        .services-column:hover {
+            transform: translateY(-5px);
+            background: rgba(17, 24, 39, 0.5) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-link span {
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover span {
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
+        @media (max-width: 1024px) {
+            .services-column {
+                min-height: auto;
+            }
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 60px;
+        }
+
+        .slides-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 350px;
+        }
+
+        @media (max-width: 768px) {
+            .slides-wrapper {
+                min-height: 400px;
+            }
+        }
+
+        .koheren-slide {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .koheren-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #14213D;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            font-size: 36px;
+            padding: 10px;
+            opacity: 0.5;
+        }
+
+        .slide-nav:hover {
+            opacity: 1;
+            color: #005581;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .prev-slide {
+            left: 10px;
+        }
+
+        .next-slide {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-container {
+                padding: 20px 40px;
+            }
+
+            .prev-slide {
+                left: 5px;
+            }
+
+            .next-slide {
+                right: 5px;
+            }
+
+            .slide-nav {
+                font-size: 28px;
+            }
+        }
+
+        .slide-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(20, 33, 61, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator:hover {
+            background: rgba(20, 33, 61, 0.5);
+            transform: scale(1.2);
+        }
+
+        .indicator.active {
+            background: #14213D;
+            width: 10px;
+            height: 10px;
         }
 
         .btn-hover {
@@ -763,7 +902,6 @@
         <div class="section-dot" data-section="our-firm"></div>
         <div class="section-dot" data-section="our-services"></div>
         <div class="section-dot" data-section="koheren-advantage"></div>
-        <div class="section-dot" data-section="signature-process"></div>
         <div class="section-dot" data-section="footer"></div>
     </div>
 
@@ -806,10 +944,10 @@
                 data-section="our-services">Our Services</a>
             <a href="#koheren-advantage"
                 class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
-                data-section="koheren-advantage">Our Advantage</a>
-            <a href="#signature-process"
+                data-section="koheren-advantage">The Koheren Way</a>
+            <a href="#footer"
                 class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
-                data-section="signature-process">Try For Free</a>
+                data-section="footer">Contact</a>
         </div>
     </div>
 
@@ -825,7 +963,7 @@
                 <div class="flex-1 flex items-center">
                     <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] max-w-5xl font-display font-bold"
                         data-aos="fade-up" data-aos-delay="100">
-                        <p>Solving Your Most Important Growth Challenges</p>
+                        <p>A strategic partner for your ambitions.</p>
                     </div>
                 </div>
 
@@ -839,7 +977,7 @@
         </div>
     </header>
 
-    <section id="our-firm" class="section bg-gray-50 relative">
+    <section id="our-firm" class="section bg-white relative">
         <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">Our Firm</h2>
@@ -876,206 +1014,253 @@
     </section>
 
     <section id="our-services" class="section bg-white relative">
-        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-3" data-aos="fade-up">Our Services</h2>
-                <h3 class="text-base text-gray-600" data-aos="fade-up" data-aos-delay="50">How We Help Clients Grow
-                    and Solve Their Most Urgent Problems</h3>
+        <div class="section-content w-full px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-2" data-aos="fade-up">
+                    Our Services
+                </h2>
+                <p class="text-sm md:text-base text-gray-700 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="50">
+                    We work alongside our clients to solve their most urgent and critical challenges—bringing our latest and sharpest thinking in strategy and organization to deliver the insight and solutions they need most.
+                </p>
             </div>
 
-            <div class="mb-10">
-                <div class="bg-gray-50 border border-gray-200 rounded-sm p-6 md:p-8" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <p class="text-base text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                        We work alongside our clients to solve their most urgent and critical challenges—bringing
-                        our latest and sharpest thinking in strategy, organization, and transaction advisory to deliver
-                        the insight and solutions they need most.
-                    </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-7xl mx-auto">
+                <!-- Strategy Advisory Column -->
+                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                        Strategy Advisory
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Corporate Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Operational Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Growth Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Digital Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Commercial Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Market Entry Strategy
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Business Model Innovation
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Organization Advisory Column -->
+                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                        Organization Advisory
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Organizational Design
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Change Management
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Performance Management
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Talent & Leadership Development
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Culture Transformation
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Operating Model Design
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    HR Effectiveness
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="service-card rounded-sm p-6 text-center h-full"
-                    data-aos="fade-up" data-aos-delay="150">
-                    <div
-                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
-                        <i class="fas fa-chart-line text-lg text-primary"></i>
-                    </div>
-                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Strategy Advisory</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">We help you define your vision, set strategic
-                        direction, and create roadmaps for sustainable growth and competitive advantage.</p>
-                </div>
-
-                <div class="service-card rounded-sm p-6 text-center h-full"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
-                        <i class="fas fa-users-cog text-lg text-primary"></i>
-                    </div>
-                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Organization Advisory</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">We optimize your organizational structure, culture,
-                        and capabilities to align with your strategic objectives and maximize performance.</p>
-                </div>
-
-                <div class="service-card rounded-sm p-6 text-center h-full"
-                    data-aos="fade-up" data-aos-delay="250">
-                    <div
-                        class="w-12 h-12 mx-auto bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20">
-                        <i class="fas fa-handshake text-lg text-primary"></i>
-                    </div>
-                    <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">Transaction Advisory</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">We provide comprehensive support for mergers,
-                        acquisitions, and partnerships to maximize value and minimize risks throughout the transaction lifecycle.
-                    </p>
-                </div>
+            <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="300">
+                <p class="text-gray-600 text-xs md:text-sm max-w-4xl mx-auto leading-relaxed">
+                    Koheren offers a broad range of services with functional and industry depth. Our connected solutions combine integrated services to fuel innovation and create new value through every stage of your transformation journey.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="koheren-advantage" class="section bg-gray-50 relative">
-        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">The Koheren Advantage</h2>
+    <section id="koheren-advantage" class="section relative bg-white">
+        <div class="section-content w-full px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-gray-900" data-aos="fade-up" style="text-transform: uppercase; letter-spacing: 2px;">The Koheren Way</h2>
             </div>
 
-            <div class="mb-8">
-                <div class="bg-white border border-gray-200 rounded-sm p-6 md:p-8" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <p class="text-base text-gray-700 leading-relaxed text-center mb-8 max-w-3xl mx-auto">
-                        We have a strong believe that client will receive most of the value and benefits in our
-                        interaction by understanding how we work in a very clear 4 <span
-                            class="font-semibold text-primary">Koheren</span> Working Principles:
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
-                            data-aos="fade-up" data-aos-delay="150">
-                            <div class="flex items-start">
-                                <div
-                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
-                                    <i class="fas fa-handshake text-primary text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">A True Partner, Not a Vendor</h4>
-                                    <p class="text-gray-600 leading-relaxed text-sm">We align ourselves with your success, working alongside
+            <!-- Slideshow Container -->
+            <div class="slideshow-container relative">
+                        <!-- Slides -->
+                        <div class="slides-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="koheren-slide">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">A True Partner, Not a Vendor</h4>
+                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We align ourselves with your success, working alongside
                                         you as a partner committed to your goals rather than just delivering a service.
                                     </p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
-                            data-aos="fade-up" data-aos-delay="200">
-                            <div class="flex items-start">
-                                <div
-                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
-                                    <i class="fas fa-thumbtack text-primary text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">Tailor-Made, Not Off-the-Shelf</h4>
-                                    <p class="text-gray-600 leading-relaxed text-sm">We create customized solutions designed specifically
+                            <!-- Slide 2 -->
+                            <div class="koheren-slide">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">Tailor-Made, Not Off-the-Shelf</h4>
+                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We create customized solutions designed specifically
                                         for your unique challenges, not generic approaches that fail to address your
                                         specific needs.</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
-                            data-aos="fade-up" data-aos-delay="250">
-                            <div class="flex items-start">
-                                <div
-                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
-                                    <i class="fas fa-brain text-primary text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">We Make You Smarter, Not Just
+                            <!-- Slide 3 -->
+                            <div class="koheren-slide">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Make You Smarter, Not Just
                                         Dependent</h4>
-                                    <p class="text-gray-600 leading-relaxed text-sm">We transfer knowledge and build capabilities within
+                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We transfer knowledge and build capabilities within
                                         your team, empowering you to sustain success long after our engagement ends.</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="bg-gray-50 border border-gray-200 rounded-sm p-5 hover:shadow-sm transition-all duration-300"
-                            data-aos="fade-up" data-aos-delay="300">
-                            <div class="flex items-start">
-                                <div
-                                    class="bg-primary/5 p-2 rounded-full mr-3 flex-shrink-0 border border-primary/20">
-                                    <i class="fas fa-rocket text-primary text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-display font-semibold text-gray-900 text-base mb-2">We Deliver Action, Not Just Advice
+                            <!-- Slide 4 -->
+                            <div class="koheren-slide">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Deliver Action, Not Just Advice
                                     </h4>
-                                    <p class="text-gray-600 leading-relaxed text-sm">We focus on implementable solutions that create real
+                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We focus on implementable solutions that create real
                                         impact, going beyond theoretical recommendations to drive tangible results.
                                     </p>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Navigation Arrows -->
+                        <button class="slide-nav prev-slide" onclick="changeSlide(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slide-nav next-slide" onclick="changeSlide(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Slide Indicators -->
+                        <div class="slide-indicators">
+                            <span class="indicator" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                        </div>
                     </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="signature-process" class="section bg-white relative">
-        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">Our Free Signature
-                    Diagnosis Process</h2>
-            </div>
-
-            <div class="bg-primary/5 border border-primary/20 rounded-sm p-8 md:p-10 text-center relative overflow-hidden"
-                data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-4">Try Koheren Problem Solving Diagnosis to find
-                    your most urgent business problems to solve!</h3>
-                <p class="text-base text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-                    Unlock hidden potential and identify critical opportunities for growth with our
-                    comprehensive diagnostic approach.
-                    Get insights that transform your business trajectory.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                    <a href="https://wa.me/yournumber" target="_blank"
-                        class="bg-primary text-white hover:bg-primary-dark px-8 py-3 rounded-sm font-medium btn-hover inline-block text-sm shadow-sm">
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        Book Your Free Diagnosis
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://linktr.ee/" target="_blank"
-                        class="bg-white text-primary border-2 border-primary hover:bg-gray-50 px-8 py-3 rounded-sm font-medium btn-hover inline-block text-sm">
-                        <i class="fas fa-link mr-2"></i>
-                        Linktree
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="footer" class="py-10 relative" data-aos="fade-up" style="background-color: #14213D;">
+    <footer id="footer" class="section py-16 relative" data-aos="fade-up" style="background-color: #14213D;">
         <div class="w-full px-8 sm:px-12 lg:px-16">
+            <!-- CTA Section -->
+            <div class="text-center py-20 mb-16 pb-16 border-b border-white/10">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-white mb-6">Ready to Transform Your Business?</h3>
+                <p class="text-white/80 text-base md:text-lg mb-10 max-w-3xl mx-auto">
+                    Get a free diagnosis to identify your most urgent business challenges.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://wa.me/6287853668658" target="_blank"
+                        class="bg-white hover:bg-gray-100 text-primary px-8 py-3.5 rounded-sm font-medium transition-all duration-300 text-base">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Book Free Diagnosis
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Info -->
             <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
                 <!-- Left Section: Logo and Description -->
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 w-full">
                     <div class="mb-4">
                         <img src="logo.png" alt="KOHEREN Logo" class="h-8 w-auto" style="filter: brightness(0) invert(1);">
                     </div>
-                    <p class="text-white/90 text-xs leading-relaxed max-w-xl mb-3 text-justify">
-                        Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. A trusted partner since 2020, we help investors and management teams achieve extraordinary results through strategic advisory, organizational transformation, and transaction support.
+                    <p class="text-white/90 text-sm md:text-xs leading-relaxed max-w-xl mb-4">
+                        Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. A trusted partner since 2020, we help investors and management teams achieve extraordinary results through strategic advisory and organizational transformation.
                     </p>
-                    <p class="text-white/60 text-xs leading-relaxed text-justify">
+                    <p class="text-white/60 text-sm md:text-xs leading-relaxed">
                         Headquarters in Jakarta with offices across Indonesia.
                     </p>
                 </div>
 
-                <!-- Right Section: Contact Button and LinkedIn -->
-                <div class="flex flex-col items-start md:items-end gap-4">
+                <!-- Right Section: Contact and Social -->
+                <div class="flex flex-col items-start md:items-end gap-4 w-full md:w-auto">
                     <div class="flex gap-3 items-center">
-                        <a href="https://wa.me/6287763359926" target="_blank"
-                            class="bg-white hover:bg-gray-100 text-primary px-6 py-2 rounded-sm font-medium transition-all duration-300 text-xs uppercase tracking-wide">
+                        <a href="https://wa.me/6287853668658" target="_blank"
+                            class="bg-white hover:bg-gray-100 text-primary px-6 py-2.5 rounded-sm font-medium transition-all duration-300 text-sm md:text-xs uppercase tracking-wide">
                             CONTACT US
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://www.linkedin.com/company/koheren-consulting" target="_blank"
                             class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300">
                             <i class="fab fa-linkedin-in text-sm"></i>
                         </a>
@@ -1085,9 +1270,9 @@
 
             <!-- Bottom Section: Copyright and Links -->
             <div class="pt-6 border-t border-white/10">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-                    <p class="text-white/50 text-xs">© 2025 Koheren Consulting. All rights reserved.</p>
-                    <div class="flex flex-wrap gap-4 text-xs">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <p class="text-white/50 text-sm md:text-xs">© 2025 Koheren Consulting. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-4 text-sm md:text-xs">
                         <a href="#" class="text-white/50 hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" class="text-white/50 hover:text-white transition-colors">Terms of Use</a>
                         <a href="#" class="text-white/50 hover:text-white transition-colors">Legal Disclosures</a>
@@ -1133,7 +1318,6 @@
             'our-firm': 'Our Firm',
             'our-services': 'Our Services',
             'koheren-advantage': 'Advantage',
-            'signature-process': 'Process',
             'footer': 'Contact'
         };
 
@@ -1423,7 +1607,9 @@
             });
         });
 
-        typewriterObserver.observe(typewriterElement);
+        if (typewriterElement) {
+            typewriterObserver.observe(typewriterElement);
+        }
 
         window.addEventListener('load', () => {
             handleSectionTransition();
@@ -1432,6 +1618,107 @@
         window.addEventListener('scroll', () => {
             if (Math.random() > 0.95) {
                 AOS.refresh();
+            }
+        });
+
+        // Slideshow functionality - Global variables
+        var currentSlideIndex = 0;
+        var slideInterval;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.koheren-slide');
+            const indicators = document.querySelectorAll('.indicator');
+
+            if (!slides.length) {
+                console.log('No slides found');
+                return;
+            }
+
+            // Ensure index is a valid number
+            if (typeof index !== 'number' || isNaN(index)) {
+                console.log('Invalid index:', index, 'Using 0');
+                index = 0;
+            }
+
+            if (index >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = slides.length - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            console.log('Showing slide:', currentSlideIndex, 'Total slides:', slides.length);
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlideIndex) {
+                    slide.classList.add('active');
+                    console.log('Activated slide', i);
+                }
+            });
+
+            indicators.forEach((indicator, i) => {
+                indicator.classList.remove('active');
+                if (i === currentSlideIndex) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+
+        // Make functions globally accessible
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+            resetSlideInterval();
+        }
+
+        function currentSlide(index) {
+            showSlide(index - 1);
+            resetSlideInterval();
+        }
+
+        // Reset interval when user manually changes slides
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                showSlide(currentSlideIndex + 1);
+            }, 5000);
+        }
+
+        // Initialize slideshow after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show first slide immediately
+            showSlide(0);
+
+            // Auto-advance slides every 5 seconds
+            slideInterval = setInterval(() => {
+                showSlide(currentSlideIndex + 1);
+            }, 5000);
+
+            // Add touch support for mobile swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            const slideshowContainer = document.querySelector('.slideshow-container');
+
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                slideshowContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        changeSlide(1);
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        changeSlide(-1);
+                    }
+                }
             }
         });
     </script>
