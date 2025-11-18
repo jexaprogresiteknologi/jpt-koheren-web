@@ -74,6 +74,7 @@
         #header {
             padding: 0;
             height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -360,8 +361,6 @@
 
         .services-column:hover {
             transform: translateY(-5px);
-            background: rgba(17, 24, 39, 0.5) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .service-link span {
@@ -736,12 +735,14 @@
             left: 0;
             width: 100%;
             height: 100%;
+            min-height: 100vh;
             overflow: hidden;
         }
 
         .header-image {
             width: 100%;
             height: 100%;
+            min-height: 100vh;
             object-fit: cover;
         }
 
@@ -751,6 +752,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            min-height: 100vh;
             background: #14213D;
             z-index: 1;
         }
@@ -905,8 +907,6 @@
         <div class="section-dot" data-section="footer"></div>
     </div>
 
-    <div class="scroll-progress"></div>
-
     <div class="particles" id="particles"></div>
 
     <nav id="navbar"
@@ -952,7 +952,7 @@
     </div>
 
     <header id="header"
-        class="section relative h-screen flex items-center justify-center overflow-hidden bg-white">
+        class="section relative h-screen flex items-center justify-center overflow-hidden bg-white" style="margin-top: 0; padding-top: 0;">
         <div class="header-image-container">
             <img src="gedung.jpeg" alt="Gedung Koheren" class="header-image">
             <div class="header-overlay"></div>
@@ -963,7 +963,7 @@
                 <div class="flex-1 flex items-center">
                     <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] max-w-5xl font-display font-bold"
                         data-aos="fade-up" data-aos-delay="100">
-                        <p>A strategic partner for your ambitions.</p>
+                        <p>Solving problem is our craft.</p>
                     </div>
                 </div>
 
@@ -987,10 +987,8 @@
                 <div class="bg-white border border-gray-200 rounded-sm p-8 md:p-12 shadow-sm" data-aos="fade-up"
                     data-aos-delay="100">
                     <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                        At <span class="font-semibold text-primary">Koheren Consulting</span>, we stand by our clients when
-                        they need us most—combining global insight, local understanding, and expert guidance in strategy,
-                        organization, and transactions. We are here to unlock value and support businesses in achieving
-                        their wildest dreams.
+                        At <span class="font-semibold text-primary">Koheren Consulting</span>, we enable 
+                        organizational coherence by aligning strategic aspirations, operating models and structures, and the people who make them happen.
                     </p>
                 </div>
             </div>
@@ -1020,7 +1018,7 @@
                     Our Services
                 </h2>
                 <p class="text-sm md:text-base text-gray-700 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="50">
-                    We work alongside our clients to solve their most urgent and critical challenges—bringing our latest and sharpest thinking in strategy and organization to deliver the insight and solutions they need most.
+                    From new ventures to companies undergoing turnaround, from family enterprises to growing public institutions, we help turn strategic ambitions into tangible results.
                 </p>
             </div>
 
@@ -1028,65 +1026,51 @@
                 <!-- Strategy Advisory Column -->
                 <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-right" data-aos-delay="100">
                     <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
-                        Strategy Advisory
+                        Strategy Architecture
                     </h3>
                     <ul class="space-y-2">
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Corporate Strategy
+                                    Corporate Strategy Design
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Operational Strategy
+                                    Growth Initiatives
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Growth Strategy
+                                    Long-term Planning
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Digital Strategy
+                                    Market Analysis
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Commercial Strategy
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Market Entry Strategy
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Business Model Innovation
+                                    Product Development
                                 </span>
                             </a>
                         </li>
                     </ul>
                 </div>
-
+                
                 <!-- Organization Advisory Column -->
                 <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-left" data-aos-delay="200">
                     <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
-                        Organization Advisory
+                        Organization Transformation
                     </h3>
                     <ul class="space-y-2">
                         <li>
@@ -1099,53 +1083,33 @@
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Change Management
+                                    Business Process
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Performance Management
+                                    Operational & Governance Model
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Talent & Leadership Development
+                                    Talent Roadmap
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Culture Transformation
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Operating Model Design
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    HR Effectiveness
+                                    Workforce Productivity
                                 </span>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="300">
-                <p class="text-gray-600 text-xs md:text-sm max-w-4xl mx-auto leading-relaxed">
-                    Koheren offers a broad range of services with functional and industry depth. Our connected solutions combine integrated services to fuel innovation and create new value through every stage of your transformation journey.
-                </p>
             </div>
         </div>
     </section>
@@ -1225,15 +1189,15 @@
         <div class="w-full px-8 sm:px-12 lg:px-16">
             <!-- CTA Section -->
             <div class="text-center py-20 mb-16 pb-16 border-b border-white/10">
-                <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-white mb-6">Ready to Transform Your Business?</h3>
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-white mb-6">Ready to strengthen your strategy and organization?</h3>
                 <p class="text-white/80 text-base md:text-lg mb-10 max-w-3xl mx-auto">
-                    Get a free diagnosis to identify your most urgent business challenges.
+                    Let’s discuss how Koheren Consulting can support your next phase of growth.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a href="https://wa.me/6287853668658" target="_blank"
                         class="bg-white hover:bg-gray-100 text-primary px-8 py-3.5 rounded-sm font-medium transition-all duration-300 text-base">
                         <i class="fab fa-whatsapp mr-2"></i>
-                        Book Free Diagnosis
+                        Book a Consultation Now
                     </a>
                 </div>
             </div>
@@ -1443,11 +1407,6 @@
                     let speed = -scrollTop * 0.5;
                     element.style.transform = `translateY(${speed}px)`;
                 });
-
-                const scrollProgress = document.querySelector('.scroll-progress');
-                const totalHeight = document.body.scrollHeight - window.innerHeight;
-                const progress = (scrollTop / totalHeight) * 100;
-                scrollProgress.style.width = `${progress}%`;
 
                 if (scrollTop > 300) {
                     backToTopBtn.classList.remove('opacity-0');
