@@ -356,7 +356,7 @@
 
         .services-column {
             transition: all 0.4s ease;
-            min-height: 320px;
+            min-height: 240px;
         }
 
         .services-column:hover {
@@ -383,38 +383,44 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            padding: 40px 60px;
+            padding: 20px 40px;
         }
 
         .slides-wrapper {
             position: relative;
             width: 100%;
-            min-height: 350px;
+            min-height: 250px;
+            overflow: hidden;
         }
 
         @media (max-width: 768px) {
             .slides-wrapper {
-                min-height: 400px;
+                min-height: 300px;
             }
         }
 
         .koheren-slide {
-            display: none;
+            position: absolute;
             width: 100%;
-            animation: fadeIn 0.6s ease;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
         }
 
         .koheren-slide.active {
-            display: block;
+            position: relative;
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .koheren-slide.slide-out-left {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .koheren-slide.slide-in-right {
+            transform: translateX(100%);
+            opacity: 0;
         }
 
 
@@ -449,7 +455,7 @@
 
         @media (max-width: 768px) {
             .slideshow-container {
-                padding: 20px 40px;
+                padding: 15px 20px;
             }
 
             .prev-slide {
@@ -469,7 +475,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 40px;
+            margin-top: 24px;
         }
 
         .indicator {
@@ -997,14 +1003,14 @@
                 <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Global Thinking</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">We bring world-class expertise and global perspective to
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg">We bring world-class expertise and global perspective to
                         solve your most complex business challenges.</p>
                 </div>
 
                 <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
                     data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Local Understanding</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Our deep knowledge of local markets ensures solutions
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg">Our deep knowledge of local markets ensures solutions
                         tailored to your specific context and challenges.</p>
                 </div>
             </div>
@@ -1012,9 +1018,9 @@
     </section>
 
     <section id="our-services" class="section bg-white relative">
-        <div class="section-content w-full px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-6">
-                <h2 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-2" data-aos="fade-up">
+        <div class="section-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-3" data-aos="fade-up">
                     Our Services
                 </h2>
                 <p class="text-sm md:text-base text-gray-700 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="50">
@@ -1022,13 +1028,13 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Strategy Advisory Column -->
-                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-right" data-aos-delay="100">
-                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-10 md:p-16" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-6 pb-4 border-b border-gray-200 text-center">
                         Strategy Architecture
                     </h3>
-                    <ul class="space-y-2">
+                    <ul class="space-y-3">
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
@@ -1064,15 +1070,22 @@
                                 </span>
                             </a>
                         </li>
+                                                <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Customer Insights
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
                 <!-- Organization Advisory Column -->
-                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-5 md:p-6" data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-10 md:p-16" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-6 pb-4 border-b border-gray-200 text-center">
                         Organization Transformation
                     </h3>
-                    <ul class="space-y-2">
+                    <ul class="space-y-3">
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
@@ -1083,7 +1096,7 @@
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Business Process
+                                    Business Process Improvement
                                 </span>
                             </a>
                         </li>
@@ -1097,7 +1110,7 @@
                         <li>
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Talent Roadmap
+                                    People Management
                                 </span>
                             </a>
                         </li>
@@ -1105,6 +1118,13 @@
                             <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
                                 <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
                                     Workforce Productivity
+                                </span>
+                            </a>
+                        </li>
+                                                <li>
+                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
+                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
+                                    Standard Operating Procedure
                                 </span>
                             </a>
                         </li>
@@ -1117,7 +1137,7 @@
     <section id="koheren-advantage" class="section relative bg-white">
         <div class="section-content w-full px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-gray-900" data-aos="fade-up" style="text-transform: uppercase; letter-spacing: 2px;">The Koheren Way</h2>
+                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">The Koheren Way</h2>
             </div>
 
             <!-- Slideshow Container -->
@@ -1126,7 +1146,7 @@
                         <div class="slides-wrapper">
                             <!-- Slide 1 -->
                             <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
                                     <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">A True Partner, Not a Vendor</h4>
                                     <p class="text-gray-700 leading-relaxed text-base md:text-lg">We align ourselves with your success, working alongside
                                         you as a partner committed to your goals rather than just delivering a service.
@@ -1136,7 +1156,7 @@
 
                             <!-- Slide 2 -->
                             <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
                                     <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">Tailor-Made, Not Off-the-Shelf</h4>
                                     <p class="text-gray-700 leading-relaxed text-base md:text-lg">We create customized solutions designed specifically
                                         for your unique challenges, not generic approaches that fail to address your
@@ -1146,7 +1166,7 @@
 
                             <!-- Slide 3 -->
                             <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
                                     <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Make You Smarter, Not Just
                                         Dependent</h4>
                                     <p class="text-gray-700 leading-relaxed text-base md:text-lg">We transfer knowledge and build capabilities within
@@ -1156,7 +1176,7 @@
 
                             <!-- Slide 4 -->
                             <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-20 md:py-32 min-h-[400px]">
+                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
                                     <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Deliver Action, Not Just Advice
                                     </h4>
                                     <p class="text-gray-700 leading-relaxed text-base md:text-lg">We focus on implementable solutions that create real
@@ -1165,14 +1185,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Navigation Arrows -->
-                        <button class="slide-nav prev-slide" onclick="changeSlide(-1)">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="slide-nav next-slide" onclick="changeSlide(1)">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
 
                         <!-- Slide Indicators -->
                         <div class="slide-indicators">
@@ -1210,7 +1222,7 @@
                         <img src="logo.png" alt="KOHEREN Logo" class="h-8 w-auto" style="filter: brightness(0) invert(1);">
                     </div>
                     <p class="text-white/90 text-sm md:text-xs leading-relaxed max-w-xl mb-4">
-                        Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. A trusted partner since 2020, we help investors and management teams achieve extraordinary results through strategic advisory and organizational transformation.
+                        Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. A trusted partner since 2022, we help investors and management teams achieve extraordinary results through strategic advisory and organizational transformation.
                     </p>
                     <p class="text-white/60 text-sm md:text-xs leading-relaxed">
                         Headquarters in Jakarta with offices across Indonesia.
@@ -1415,6 +1427,19 @@
                     backToTopBtn.classList.remove('opacity-100');
                     backToTopBtn.classList.add('opacity-0');
                 }
+
+                // Change button color when near footer
+                const footerTop = footer.offsetTop;
+                const windowHeight = window.innerHeight;
+                const buttonBottom = scrollTop + windowHeight - 32; // 32px is bottom-8
+
+                if (buttonBottom >= footerTop) {
+                    backToTopBtn.classList.remove('bg-primary', 'text-white', 'hover:bg-primary-dark');
+                    backToTopBtn.classList.add('bg-white', 'text-primary', 'hover:bg-gray-100');
+                } else {
+                    backToTopBtn.classList.remove('bg-white', 'text-primary', 'hover:bg-gray-100');
+                    backToTopBtn.classList.add('bg-primary', 'text-white', 'hover:bg-primary-dark');
+                }
             }
         });
 
@@ -1582,9 +1607,10 @@
 
         // Slideshow functionality - Global variables
         var currentSlideIndex = 0;
+        var previousSlideIndex = 0;
         var slideInterval;
 
-        function showSlide(index) {
+        function showSlide(index, direction = 1) {
             const slides = document.querySelectorAll('.koheren-slide');
             const indicators = document.querySelectorAll('.indicator');
 
@@ -1599,6 +1625,8 @@
                 index = 0;
             }
 
+            previousSlideIndex = currentSlideIndex;
+
             if (index >= slides.length) {
                 currentSlideIndex = 0;
             } else if (index < 0) {
@@ -1610,10 +1638,18 @@
             console.log('Showing slide:', currentSlideIndex, 'Total slides:', slides.length);
 
             slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === currentSlideIndex) {
+                slide.classList.remove('active', 'slide-out-left', 'slide-in-right');
+
+                if (i === previousSlideIndex && i !== currentSlideIndex) {
+                    // Previous slide slides out to the left
+                    slide.classList.add('slide-out-left');
+                } else if (i === currentSlideIndex) {
+                    // Current slide becomes active
                     slide.classList.add('active');
                     console.log('Activated slide', i);
+                } else {
+                    // Other slides wait off-screen to the right
+                    slide.classList.add('slide-in-right');
                 }
             });
 
