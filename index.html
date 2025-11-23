@@ -4,7 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koheren - Professional Company</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Koheren Consulting - An Independent Management Consulting Firm</title>
+    <meta name="description" content="At Koheren Consulting, we enable organizational coherence by aligning strategic aspirations, operating models and structures, and the people who make them happen.">
+    <meta name="keywords" content="consulting, strategy consulting, organizational transformation, business consulting, Indonesia, Jakarta, corporate strategy, organizational design">
+    <meta name="author" content="Koheren Consulting">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.koherenconsulting.com/">
+    <meta property="og:title" content="Koheren Consulting - Strategy & Organization Transformation">
+    <meta property="og:description" content="Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. We provide strategy architecture and organization transformation services across Indonesia.">
+    <meta property="og:image" content="https://www.koherenconsulting.com/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.koherenconsulting.com/">
+    <meta property="twitter:title" content="Koheren Consulting - Strategy & Organization Transformation">
+    <meta property="twitter:description" content="Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. We provide strategy architecture and organization transformation services across Indonesia.">
+    <meta property="twitter:image" content="https://www.koherenconsulting.com/logo.png">
+
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -434,23 +454,34 @@
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
-            font-size: 36px;
-            padding: 10px;
-            opacity: 0.5;
+            font-size: 28px;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.4;
         }
 
         .slide-nav:hover {
             opacity: 1;
-            color: #005581;
-            transform: translateY(-50%) scale(1.2);
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .slide-nav:hover.prev-slide {
+            transform: translateY(-50%) translateX(-3px);
+        }
+
+        .slide-nav:hover.next-slide {
+            transform: translateY(-50%) translateX(3px);
         }
 
         .prev-slide {
-            left: 10px;
+            left: 20px;
         }
 
         .next-slide {
-            right: 10px;
+            right: 20px;
         }
 
         @media (max-width: 768px) {
@@ -458,16 +489,8 @@
                 padding: 15px 20px;
             }
 
-            .prev-slide {
-                left: 5px;
-            }
-
-            .next-slide {
-                right: 5px;
-            }
-
             .slide-nav {
-                font-size: 28px;
+                display: none;
             }
         }
 
@@ -1185,6 +1208,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Navigation Arrows -->
+                        <button class="slide-nav prev-slide" onclick="changeSlide(-1)" aria-label="Previous slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slide-nav next-slide" onclick="changeSlide(1)" aria-label="Next slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
 
                         <!-- Slide Indicators -->
                         <div class="slide-indicators">
