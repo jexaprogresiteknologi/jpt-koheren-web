@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="lQnjHKBtCSrZHKvAcm8bjPZ1KAPv_8seOUmT0Z2_c8I" />
 
     <!-- SEO Meta Tags -->
     <title>Koheren Consulting - An Independent Management Consulting Firm</title>
@@ -411,6 +412,9 @@
             width: 100%;
             min-height: 250px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @media (max-width: 768px) {
@@ -422,24 +426,36 @@
         .koheren-slide {
             position: absolute;
             width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) translateX(100%);
             opacity: 0;
-            transform: translateX(100%);
             transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
         }
 
         .koheren-slide.active {
-            position: relative;
+            position: absolute;
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(-50%) translateX(0);
         }
 
         .koheren-slide.slide-out-left {
-            transform: translateX(-100%);
+            transform: translateY(-50%) translateX(-100%);
             opacity: 0;
         }
 
         .koheren-slide.slide-in-right {
-            transform: translateX(100%);
+            transform: translateY(-50%) translateX(100%);
+            opacity: 0;
+        }
+
+        .koheren-slide.slide-out-right {
+            transform: translateY(-50%) translateX(100%);
+            opacity: 0;
+        }
+
+        .koheren-slide.slide-in-left {
+            transform: translateY(-50%) translateX(-100%);
             opacity: 0;
         }
 
@@ -907,6 +923,18 @@
             cursor: pointer;
             z-index: 61;
         }
+
+        #navbar {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        #navbar.navbar-hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -1328,12 +1356,23 @@
             'footer': 'Contact'
         };
 
+        // Force scroll to top on page load
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         window.addEventListener('load', () => {
+            // Ensure we're at the top
+            window.scrollTo(0, 0);
+
             setTimeout(() => {
                 loader.classList.add('fade-out');
                 setTimeout(() => {
                     loader.style.display = 'none';
                     initializeSectionVisibility();
+                    // Final scroll to top after loader
+                    window.scrollTo(0, 0);
                 }, 500);
             }, 1500);
         });
@@ -1378,6 +1417,15 @@
         closeMenuBtn.addEventListener('click', closeMenu);
         menuOverlay.addEventListener('click', closeMenu);
 
+        function updateNavbarVisibility(sectionId) {
+            // Show navbar only on header and footer sections
+            if (sectionId === 'header' || sectionId === 'footer') {
+                navbar.classList.remove('navbar-hidden');
+            } else {
+                navbar.classList.add('navbar-hidden');
+            }
+        }
+
         function handleSectionTransition() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const windowHeight = window.innerHeight;
@@ -1398,8 +1446,10 @@
                         section.classList.add('visible');
                     }
 
-                    updateSectionDot(section.id || 'footer');
-                    updateActiveNavLink(section.id || 'footer');
+                    const activeSectionId = section.id || 'footer';
+                    updateSectionDot(activeSectionId);
+                    updateActiveNavLink(activeSectionId);
+                    updateNavbarVisibility(activeSectionId);
 
                     if (section.querySelectorAll('[data-aos]').length > 0) {
                         AOS.refresh();
@@ -1666,21 +1716,33 @@
                 currentSlideIndex = index;
             }
 
-            console.log('Showing slide:', currentSlideIndex, 'Total slides:', slides.length);
+            console.log('Showing slide:', currentSlideIndex, 'Total slides:', slides.length, 'Direction:', direction);
 
             slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'slide-out-left', 'slide-in-right');
+                slide.classList.remove('active', 'slide-out-left', 'slide-in-right', 'slide-out-right', 'slide-in-left');
 
                 if (i === previousSlideIndex && i !== currentSlideIndex) {
-                    // Previous slide slides out to the left
-                    slide.classList.add('slide-out-left');
+                    // Previous slide exits based on direction
+                    if (direction > 0) {
+                        // Going forward: slide out to the left
+                        slide.classList.add('slide-out-left');
+                    } else {
+                        // Going backward: slide out to the right
+                        slide.classList.add('slide-out-right');
+                    }
                 } else if (i === currentSlideIndex) {
                     // Current slide becomes active
                     slide.classList.add('active');
                     console.log('Activated slide', i);
                 } else {
-                    // Other slides wait off-screen to the right
-                    slide.classList.add('slide-in-right');
+                    // Other slides wait off-screen based on direction
+                    if (direction > 0) {
+                        // Going forward: wait on the right
+                        slide.classList.add('slide-in-right');
+                    } else {
+                        // Going backward: wait on the left
+                        slide.classList.add('slide-in-left');
+                    }
                 }
             });
 
@@ -1694,12 +1756,13 @@
 
         // Make functions globally accessible
         function changeSlide(direction) {
-            showSlide(currentSlideIndex + direction);
+            showSlide(currentSlideIndex + direction, direction);
             resetSlideInterval();
         }
 
         function currentSlide(index) {
-            showSlide(index - 1);
+            const direction = (index - 1) > currentSlideIndex ? 1 : -1;
+            showSlide(index - 1, direction);
             resetSlideInterval();
         }
 
