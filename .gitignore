@@ -1,0 +1,9 @@
+# AI agent tooling (local only, not part of the website)
+.agents/
+.claude/
+skills-lock.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

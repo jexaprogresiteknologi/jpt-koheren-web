@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,28 +8,28 @@
 
     <!-- SEO Meta Tags -->
     <title>Koheren Consulting - An Independent Management Consulting Firm</title>
-    <meta name="description" content="At Koheren Consulting, we enable organizational coherence by aligning strategic aspirations, operating models and structures, and the people who make them happen.">
-    <meta name="keywords" content="consulting, strategy consulting, organizational transformation, business consulting, Indonesia, Jakarta, corporate strategy, organizational design">
+    <meta name="description" content="Independent private advisory for leaders navigating important decisions, complex challenges, and opportunities for growth.">
+    <meta name="keywords" content="private advisory, independent advisory, strategic advice, growth, organization, performance, transformation, strategic transactions, Indonesia, Jakarta">
     <meta name="author" content="Koheren Consulting">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.koherenconsulting.com/">
-    <meta property="og:title" content="Koheren Consulting - Strategy & Organization Transformation">
-    <meta property="og:description" content="Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. We provide strategy architecture and organization transformation services across Indonesia.">
+    <meta property="og:title" content="Koheren Consulting - Independent Private Advisory">
+    <meta property="og:description" content="Independent private advisory for leaders navigating important decisions, complex challenges, and opportunities for growth.">
     <meta property="og:image" content="https://www.koherenconsulting.com/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.koherenconsulting.com/">
-    <meta property="twitter:title" content="Koheren Consulting - Strategy & Organization Transformation">
-    <meta property="twitter:description" content="Koheren Consulting is an independent firm focused on helping businesses solve their most important growth challenges. We provide strategy architecture and organization transformation services across Indonesia.">
+    <meta property="twitter:title" content="Koheren Consulting - Independent Private Advisory">
+    <meta property="twitter:description" content="Independent private advisory for leaders navigating important decisions, complex challenges, and opportunities for growth.">
     <meta property="twitter:image" content="https://www.koherenconsulting.com/logo.png">
 
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -80,6 +80,15 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             color: #111827;
+        }
+
+        .font-opensans,
+        .font-opensans h1,
+        .font-opensans h2,
+        .font-opensans p,
+        .font-opensans a,
+        .font-opensans span {
+            font-family: 'Open Sans', sans-serif;
         }
 
         .section {
@@ -355,188 +364,6 @@
             display: none;
         }
 
-        .service-card {
-            transition: all 0.3s ease;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 85, 129, 0.1);
-            border-color: #005581;
-        }
-
-        .services-background-container {
-            z-index: 0;
-        }
-
-        .services-background-container img {
-            filter: brightness(0.7);
-        }
-
-        .services-column {
-            transition: all 0.4s ease;
-            min-height: 240px;
-        }
-
-        .services-column:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-link span {
-            transition: all 0.3s ease;
-        }
-
-        .service-link:hover span {
-            transform: translateX(5px);
-            display: inline-block;
-        }
-
-        @media (max-width: 1024px) {
-            .services-column {
-                min-height: auto;
-            }
-        }
-
-        /* Slideshow Styles */
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 20px 40px;
-        }
-
-        .slides-wrapper {
-            position: relative;
-            width: 100%;
-            min-height: 250px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            .slides-wrapper {
-                min-height: 300px;
-            }
-        }
-
-        .koheren-slide {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%) translateX(100%);
-            opacity: 0;
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
-        }
-
-        .koheren-slide.active {
-            position: absolute;
-            opacity: 1;
-            transform: translateY(-50%) translateX(0);
-        }
-
-        .koheren-slide.slide-out-left {
-            transform: translateY(-50%) translateX(-100%);
-            opacity: 0;
-        }
-
-        .koheren-slide.slide-in-right {
-            transform: translateY(-50%) translateX(100%);
-            opacity: 0;
-        }
-
-        .koheren-slide.slide-out-right {
-            transform: translateY(-50%) translateX(100%);
-            opacity: 0;
-        }
-
-        .koheren-slide.slide-in-left {
-            transform: translateY(-50%) translateX(-100%);
-            opacity: 0;
-        }
-
-
-        .slide-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            color: #14213D;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            font-size: 28px;
-            width: auto;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.4;
-        }
-
-        .slide-nav:hover {
-            opacity: 1;
-            transform: translateY(-50%) translateX(0);
-        }
-
-        .slide-nav:hover.prev-slide {
-            transform: translateY(-50%) translateX(-3px);
-        }
-
-        .slide-nav:hover.next-slide {
-            transform: translateY(-50%) translateX(3px);
-        }
-
-        .prev-slide {
-            left: 20px;
-        }
-
-        .next-slide {
-            right: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .slideshow-container {
-                padding: 15px 20px;
-            }
-
-            .slide-nav {
-                display: none;
-            }
-        }
-
-        .slide-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 24px;
-        }
-
-        .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(20, 33, 61, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .indicator:hover {
-            background: rgba(20, 33, 61, 0.5);
-            transform: scale(1.2);
-        }
-
-        .indicator.active {
-            background: #14213D;
-            width: 10px;
-            height: 10px;
-        }
-
         .btn-hover {
             transition: all 0.2s ease;
             position: relative;
@@ -553,6 +380,14 @@
         .btn-hover:hover {
             box-shadow: 0 4px 12px rgba(0, 61, 92, 0.15);
             transform: translateY(-1px);
+        }
+
+        .btn-press {
+            transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease;
+        }
+
+        .btn-press:active {
+            transform: scale(0.97);
         }
 
         .scroll-progress {
@@ -774,46 +609,6 @@
             box-shadow: 0 0 30px rgba(252, 163, 17, 0.5);
         }
 
-        .header-image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .header-image {
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            object-fit: cover;
-        }
-
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            background: #14213D;
-            z-index: 1;
-        }
-
-
-        .section-dots {
-            display: none;
-        }
-
-        .section-dot {
-            display: none;
-        }
-
-        .section-dot.active {
-            display: none;
-        }
 
         .step-animation {
             animation: stepMove 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -956,29 +751,21 @@
 
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <div class="section-dots" id="sectionDots">
-        <div class="section-dot active" data-section="header"></div>
-        <div class="section-dot" data-section="our-firm"></div>
-        <div class="section-dot" data-section="our-services"></div>
-        <div class="section-dot" data-section="koheren-advantage"></div>
-        <div class="section-dot" data-section="footer"></div>
-    </div>
-
     <div class="particles" id="particles"></div>
 
     <nav id="navbar"
         class="bg-transparent w-full z-50 transition-all duration-300 fixed top-0">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center pl-2">
+                <div class="flex items-center">
                     <a href="#" class="flex items-center">
                         <img src="logo.png" alt="Koheren Consulting Logo" class="h-8 w-auto">
                     </a>
                 </div>
 
-                <div class="flex items-center pr-2">
-                    <button id="mobileMenuBtn" class="text-white focus:outline-none p-0">
-                        <i class="fas fa-bars text-4xl"></i>
+                <div class="flex items-center">
+                    <button id="mobileMenuBtn" class="text-white/90 hover:text-white focus:outline-none p-0" aria-label="Open menu">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
@@ -993,15 +780,9 @@
             <a href="#header"
                 class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
                 data-section="header">Home</a>
-            <a href="#our-firm"
+            <a href="#advisory"
                 class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
-                data-section="our-firm">Our Firm</a>
-            <a href="#our-services"
-                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
-                data-section="our-services">Our Services</a>
-            <a href="#koheren-advantage"
-                class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
-                data-section="koheren-advantage">The Koheren Way</a>
+                data-section="advisory">Advisory</a>
             <a href="#footer"
                 class="nav-link-mobile block px-3 py-4 text-lg font-medium text-gray-700 hover:text-primary text-center"
                 data-section="footer">Contact</a>
@@ -1009,268 +790,61 @@
     </div>
 
     <header id="header"
-        class="section relative h-screen flex items-center justify-center overflow-hidden bg-white" style="margin-top: 0; padding-top: 0;">
-        <div class="header-image-container">
-            <img src="gedung.jpeg" alt="Gedung Koheren" class="header-image">
-            <div class="header-overlay"></div>
-        </div>
-
+        class="section font-opensans relative h-screen flex items-center justify-center overflow-hidden"
+        style="margin-top: 0; padding-top: 0; background: radial-gradient(ellipse at 85% 0%, #1a2d52 0%, #14213D 55%);">
         <div class="section-content w-full relative z-10 h-full flex items-center">
-            <div class="w-full px-8 sm:px-12 lg:px-16 h-full flex flex-col justify-center py-20">
+            <div class="w-full px-6 sm:px-10 lg:px-16 h-full flex flex-col pt-28 pb-8">
                 <div class="flex-1 flex items-center">
-                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] max-w-5xl font-display font-bold"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <p>Solving problem is our craft.</p>
+                    <div class="max-w-4xl" data-aos="fade-up" data-aos-delay="100">
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl leading-[1.15] font-display font-medium tracking-tight mb-8"
+                            style="color: #ffffff;">Clarity for Ambitious Decisions.</h1>
+                        <p class="text-base md:text-lg text-white/70 leading-relaxed max-w-xl mb-12">
+                            Independent private advisory for leaders navigating important decisions, complex challenges, and opportunities for growth.
+                        </p>
+                        <a href="#advisory"
+                            class="group inline-flex items-center gap-3 text-white text-sm tracking-wide border-b border-white/40 pb-1 hover:border-white transition-colors duration-300">
+                            Learn more
+                            <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex justify-end items-end pt-8" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#our-firm"
-                        class="bg-blue-500 hover:bg-blue-600 text-white px-10 py-3.5 rounded-full font-normal btn-hover inline-block text-sm tracking-wide transition-all">
-                        LEARN MORE
-                    </a>
+                <div class="flex justify-between items-center pt-6 border-t border-white/10 text-white/40 text-xs tracking-widest uppercase">
+                    <span>Jakarta Office</span>
+                    <a href="#advisory" class="hover:text-white/70 transition-colors duration-300">Scroll <i class="fa-solid fa-arrow-down ml-1"></i></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="our-firm" class="section bg-white relative">
-        <div class="section-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">Our Firm</h2>
-            </div>
-
-            <div class="mb-12">
-                <div class="bg-white border border-gray-200 rounded-sm p-8 md:p-12 shadow-sm" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                        At <span class="font-semibold text-primary">Koheren Consulting</span>, we enable 
-                        organizational coherence by aligning strategic aspirations, operating models and structures, and the people who make them happen.
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Global Thinking</h3>
-                    <p class="text-gray-600 leading-relaxed text-base md:text-lg">We bring world-class expertise and global perspective to
-                        solve your most complex business challenges.</p>
-                </div>
-
-                <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm hover:shadow-md transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-xl font-display font-semibold text-gray-900 mb-3">Local Understanding</h3>
-                    <p class="text-gray-600 leading-relaxed text-base md:text-lg">Our deep knowledge of local markets ensures solutions
-                        tailored to your specific context and challenges.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="our-services" class="section bg-white relative">
-        <div class="section-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-display font-semibold text-gray-900 mb-3" data-aos="fade-up">
-                    Our Services
-                </h2>
-                <p class="text-sm md:text-base text-gray-700 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="50">
-                    From new ventures to companies undergoing turnaround, from family enterprises to growing public institutions, we help turn strategic ambitions into tangible results.
+    <section id="advisory" class="section font-opensans bg-white relative">
+        <div class="section-content w-full px-6 sm:px-10 lg:px-16 relative z-10">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <span class="block w-10 h-px bg-primary/40 mb-8"></span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-medium tracking-tight text-gray-900 mb-8 leading-[1.15]">Advice &amp; Perspective for What Matters.</h2>
+                <p class="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+                    We bring together the perspectives and expertise needed to help you achieve what matters most, providing tailored advice across strategy, growth, organization, performance, transformation, and strategic transactions.
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Strategy Advisory Column -->
-                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-10 md:p-16" data-aos="fade-right" data-aos-delay="100">
-                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-6 pb-4 border-b border-gray-200 text-center">
-                        Strategy Architecture
-                    </h3>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Corporate Strategy Design
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Growth Initiatives
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Long-term Planning
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Market Analysis
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Product Development
-                                </span>
-                            </a>
-                        </li>
-                                                <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Customer Insights
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Organization Advisory Column -->
-                <div class="services-column bg-gray-50 border border-gray-200 border-t-4 border-t-primary p-10 md:p-16" data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="text-xl md:text-2xl font-display font-semibold text-gray-900 mb-6 pb-4 border-b border-gray-200 text-center">
-                        Organization Transformation
-                    </h3>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Organizational Design
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Business Process Improvement
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Operational & Governance Model
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    People Management
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Workforce Productivity
-                                </span>
-                            </a>
-                        </li>
-                                                <li>
-                            <a href="#" class="service-link group block text-gray-700 hover:text-primary transition-all duration-300">
-                                <span class="text-sm md:text-base font-medium border-b border-transparent group-hover:border-primary pb-1 inline-block">
-                                    Standard Operating Procedure
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="koheren-advantage" class="section relative bg-white">
-        <div class="section-content w-full px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 mb-4" data-aos="fade-up">The Koheren Way</h2>
-            </div>
-
-            <!-- Slideshow Container -->
-            <div class="slideshow-container relative">
-                        <!-- Slides -->
-                        <div class="slides-wrapper">
-                            <!-- Slide 1 -->
-                            <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
-                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">A True Partner, Not a Vendor</h4>
-                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We align ourselves with your success, working alongside
-                                        you as a partner committed to your goals rather than just delivering a service.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Slide 2 -->
-                            <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
-                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">Tailor-Made, Not Off-the-Shelf</h4>
-                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We create customized solutions designed specifically
-                                        for your unique challenges, not generic approaches that fail to address your
-                                        specific needs.</p>
-                                </div>
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
-                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Make You Smarter, Not Just
-                                        Dependent</h4>
-                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We transfer knowledge and build capabilities within
-                                        your team, empowering you to sustain success long after our engagement ends.</p>
-                                </div>
-                            </div>
-
-                            <!-- Slide 4 -->
-                            <div class="koheren-slide">
-                                <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto py-8 md:py-12">
-                                    <h4 class="font-display font-semibold text-gray-900 text-2xl md:text-3xl mb-4">We Deliver Action, Not Just Advice
-                                    </h4>
-                                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">We focus on implementable solutions that create real
-                                        impact, going beyond theoretical recommendations to drive tangible results.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Arrows -->
-                        <button class="slide-nav prev-slide" onclick="changeSlide(-1)" aria-label="Previous slide">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="slide-nav next-slide" onclick="changeSlide(1)" aria-label="Next slide">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-
-                        <!-- Slide Indicators -->
-                        <div class="slide-indicators">
-                            <span class="indicator" onclick="currentSlide(1)"></span>
-                            <span class="indicator" onclick="currentSlide(2)"></span>
-                            <span class="indicator" onclick="currentSlide(3)"></span>
-                            <span class="indicator" onclick="currentSlide(4)"></span>
-                        </div>
-                    </div>
-        </div>
-    </section>
-
-    <footer id="footer" class="section py-16 relative" data-aos="fade-up" style="background-color: #14213D;">
-        <div class="w-full px-8 sm:px-12 lg:px-16">
-            <!-- CTA Section -->
-            <div class="text-center py-20 mb-16 pb-16 border-b border-white/10">
-                <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-white mb-6">Ready to strengthen your strategy and organization?</h3>
-                <p class="text-white/80 text-base md:text-lg mb-10 max-w-3xl mx-auto">
-                    Let’s discuss how Koheren Consulting can support your next phase of growth.
+    <footer id="footer" class="section relative" data-aos="fade-up" style="background-color: #14213D; min-height: auto; padding-top: 6rem; padding-bottom: 4rem;">
+        <div class="w-full px-6 sm:px-10 lg:px-16">
+            <!-- CTA -->
+            <div class="font-opensans max-w-4xl pb-20 mb-16 border-b border-white/10">
+                <span class="block w-10 h-px bg-white/40 mb-8"></span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-medium tracking-tight mb-8 leading-[1.15]"
+                    style="color: #ffffff;">Let&rsquo;s discuss what matters to you.</h2>
+                <p class="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mb-12">
+                    If you are considering an important decision, facing a complex challenge, or exploring a new opportunity, we would be pleased to hear from you.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/6287853668658" target="_blank"
-                        class="bg-white hover:bg-gray-100 text-primary px-8 py-3.5 rounded-sm font-medium transition-all duration-300 text-base">
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        Book a Consultation Now
-                    </a>
-                </div>
+                <a href="mailto:koherenconsulting@gmail.com?subject=Advisory%20Inquiry"
+                    class="btn-press inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-primary px-8 py-3.5 rounded-sm text-sm font-medium tracking-wide">
+                    <i class="fa-regular fa-envelope"></i>
+                    Email us
+                </a>
             </div>
 
             <!-- Footer Info -->
@@ -1291,10 +865,6 @@
                 <!-- Right Section: Contact and Social -->
                 <div class="flex flex-col items-start md:items-end gap-4 w-full md:w-auto">
                     <div class="flex gap-3 items-center">
-                        <a href="https://wa.me/6287853668658" target="_blank"
-                            class="bg-white hover:bg-gray-100 text-primary px-6 py-2.5 rounded-sm font-medium transition-all duration-300 text-sm md:text-xs uppercase tracking-wide">
-                            CONTACT US
-                        </a>
                         <a href="https://www.linkedin.com/company/koheren-consulting" target="_blank"
                             class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-300">
                             <i class="fab fa-linkedin-in text-sm"></i>
@@ -1343,18 +913,9 @@
         const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
         const loader = document.getElementById('loader');
         const pageTransition = document.getElementById('pageTransition');
-        const sectionDots = document.querySelectorAll('.section-dot');
         const footer = document.querySelector('footer');
 
         const allSections = [...document.querySelectorAll('.section'), footer];
-
-        const sectionNames = {
-            'header': 'Home',
-            'our-firm': 'Our Firm',
-            'our-services': 'Our Services',
-            'koheren-advantage': 'Advantage',
-            'footer': 'Contact'
-        };
 
         // Force scroll to top on page load
         if (history.scrollRestoration) {
@@ -1418,8 +979,8 @@
         menuOverlay.addEventListener('click', closeMenu);
 
         function updateNavbarVisibility(sectionId) {
-            // Show navbar only on header and footer sections
-            if (sectionId === 'header' || sectionId === 'footer') {
+            // Show navbar only on the hero; the footer now holds the contact CTA
+            if (sectionId === 'header') {
                 navbar.classList.remove('navbar-hidden');
             } else {
                 navbar.classList.add('navbar-hidden');
@@ -1447,23 +1008,12 @@
                     }
 
                     const activeSectionId = section.id || 'footer';
-                    updateSectionDot(activeSectionId);
                     updateActiveNavLink(activeSectionId);
                     updateNavbarVisibility(activeSectionId);
 
                     if (section.querySelectorAll('[data-aos]').length > 0) {
                         AOS.refresh();
                     }
-                }
-            });
-        }
-
-        function updateSectionDot(activeSectionId) {
-            sectionDots.forEach(dot => dot.classList.remove('active'));
-
-            sectionDots.forEach(dot => {
-                if (dot.getAttribute('data-section') === activeSectionId) {
-                    dot.classList.add('active');
                 }
             });
         }
@@ -1571,13 +1121,6 @@
             });
         });
 
-        sectionDots.forEach(dot => {
-            dot.addEventListener('click', function () {
-                const targetId = '#' + this.getAttribute('data-section');
-                smoothScrollToSection(targetId);
-            });
-        });
-
         backToTopBtn.addEventListener('click', () => {
             pageTransition.classList.add('active');
 
@@ -1633,23 +1176,6 @@
             observer.observe(element);
         });
 
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.01)';
-                setTimeout(() => {
-                    card.style.transform = 'translateY(-5px) scale(1.02)';
-                }, 100);
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(-2px) scale(1.01)';
-                setTimeout(() => {
-                    card.style.transform = 'translateY(0) scale(1)';
-                }, 100);
-            });
-        });
-
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.style.animation = 'pulse 0.3s ease';
             setTimeout(() => {
@@ -1683,131 +1209,6 @@
         window.addEventListener('scroll', () => {
             if (Math.random() > 0.95) {
                 AOS.refresh();
-            }
-        });
-
-        // Slideshow functionality - Global variables
-        var currentSlideIndex = 0;
-        var previousSlideIndex = 0;
-        var slideInterval;
-
-        function showSlide(index, direction = 1) {
-            const slides = document.querySelectorAll('.koheren-slide');
-            const indicators = document.querySelectorAll('.indicator');
-
-            if (!slides.length) {
-                console.log('No slides found');
-                return;
-            }
-
-            // Ensure index is a valid number
-            if (typeof index !== 'number' || isNaN(index)) {
-                console.log('Invalid index:', index, 'Using 0');
-                index = 0;
-            }
-
-            previousSlideIndex = currentSlideIndex;
-
-            if (index >= slides.length) {
-                currentSlideIndex = 0;
-            } else if (index < 0) {
-                currentSlideIndex = slides.length - 1;
-            } else {
-                currentSlideIndex = index;
-            }
-
-            console.log('Showing slide:', currentSlideIndex, 'Total slides:', slides.length, 'Direction:', direction);
-
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'slide-out-left', 'slide-in-right', 'slide-out-right', 'slide-in-left');
-
-                if (i === previousSlideIndex && i !== currentSlideIndex) {
-                    // Previous slide exits based on direction
-                    if (direction > 0) {
-                        // Going forward: slide out to the left
-                        slide.classList.add('slide-out-left');
-                    } else {
-                        // Going backward: slide out to the right
-                        slide.classList.add('slide-out-right');
-                    }
-                } else if (i === currentSlideIndex) {
-                    // Current slide becomes active
-                    slide.classList.add('active');
-                    console.log('Activated slide', i);
-                } else {
-                    // Other slides wait off-screen based on direction
-                    if (direction > 0) {
-                        // Going forward: wait on the right
-                        slide.classList.add('slide-in-right');
-                    } else {
-                        // Going backward: wait on the left
-                        slide.classList.add('slide-in-left');
-                    }
-                }
-            });
-
-            indicators.forEach((indicator, i) => {
-                indicator.classList.remove('active');
-                if (i === currentSlideIndex) {
-                    indicator.classList.add('active');
-                }
-            });
-        }
-
-        // Make functions globally accessible
-        function changeSlide(direction) {
-            showSlide(currentSlideIndex + direction, direction);
-            resetSlideInterval();
-        }
-
-        function currentSlide(index) {
-            const direction = (index - 1) > currentSlideIndex ? 1 : -1;
-            showSlide(index - 1, direction);
-            resetSlideInterval();
-        }
-
-        // Reset interval when user manually changes slides
-        function resetSlideInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(() => {
-                showSlide(currentSlideIndex + 1);
-            }, 5000);
-        }
-
-        // Initialize slideshow after DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show first slide immediately
-            showSlide(0);
-
-            // Auto-advance slides every 5 seconds
-            slideInterval = setInterval(() => {
-                showSlide(currentSlideIndex + 1);
-            }, 5000);
-
-            // Add touch support for mobile swipe
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            const slideshowContainer = document.querySelector('.slideshow-container');
-
-            if (slideshowContainer) {
-                slideshowContainer.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                });
-
-                slideshowContainer.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-
-                function handleSwipe() {
-                    if (touchEndX < touchStartX - 50) {
-                        changeSlide(1);
-                    }
-                    if (touchEndX > touchStartX + 50) {
-                        changeSlide(-1);
-                    }
-                }
             }
         });
     </script>
