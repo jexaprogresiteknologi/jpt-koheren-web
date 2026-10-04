@@ -65,7 +65,7 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-color: #ffffff;
+            background-color: #14213D;
             color: #1f2937;
             line-height: 1.6;
         }
@@ -303,10 +303,12 @@
             align-items: center;
         }
 
-        .loader-logo img {
+        .loader-logo-mark {
             height: 5rem;
-            width: auto;
-            filter: brightness(0) saturate(100%) invert(12%) sepia(45%) saturate(3497%) hue-rotate(201deg) brightness(93%) contrast(101%);
+            aspect-ratio: 2386 / 697;
+            background-color: #14213D;
+            -webkit-mask: url('logo.png') center / contain no-repeat;
+            mask: url('logo.png') center / contain no-repeat;
         }
 
         .loader-dots {
@@ -735,11 +737,11 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-800 overflow-x-hidden">
+<body class="text-gray-800 overflow-x-hidden">
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="loader-logo">
-                <img src="logo.png" alt="Koheren Consulting Logo">
+                <div class="loader-logo-mark" role="img" aria-label="Koheren Consulting Logo"></div>
             </div>
             <div class="loader-dots">
                 <div class="loader-dot"></div>
@@ -820,6 +822,7 @@
         </div>
     </header>
 
+    <div class="bg-white">
     <section id="advisory" class="section font-opensans bg-white relative">
         <div class="section-content w-full px-6 sm:px-10 lg:px-16 relative z-10">
             <div class="max-w-4xl" data-aos="fade-up">
@@ -831,6 +834,7 @@
             </div>
         </div>
     </section>
+    </div>
 
     <footer id="footer" class="section relative" data-aos="fade-up" style="background-color: #14213D; min-height: auto; padding-top: 6rem; padding-bottom: 4rem;">
         <div class="w-full px-6 sm:px-10 lg:px-16">
