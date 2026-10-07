@@ -3,6 +3,9 @@
 .claude/
 skills-lock.json
 
+# Local docs (not part of the website)
+docs/
+
 # OS / editor
 .DS_Store
 Thumbs.db
